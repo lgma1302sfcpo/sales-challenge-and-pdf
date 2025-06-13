@@ -1,34 +1,74 @@
-Sales Management System
-Este é um sistema de gerenciamento de vendas desenvolvido com Laravel.
+🛒 Sales Management System
+Sistema simples de gerenciamento de vendas desenvolvido com Laravel. Permite realizar operações essenciais como cadastro, edição e exclusão de vendas, além de geração de PDFs de forma prática.
 
-Requisitos
-PHP ^8.0
+✅ Requisitos
+PHP 8.0 ou superior
+
 Composer
-MySQL
-Instalação
+
+MySQL 5.7+ ou MariaDB
+
+Navegador moderno
+
+🚀 Instalação
 Clone o repositório:
 
-git clone https://github.com/Gabriel-Trindade/dc-challenge.git
-cd dc-challenge
+bash
+Copiar
+Editar
+git clone https://github.com/lgma1302sfcpo/sales-challenge-and-pdf.git
+cd sales-challenge-and-pdf
 Instale as dependências do PHP:
 
+bash
+Copiar
+Editar
 composer install
-Configure o arquivo .env com as informações do banco de dados.
+Configure o ambiente:
+
+Copie o arquivo .env.example para .env
+
+Configure os dados de conexão com o banco de dados
 
 Execute as migrações:
 
+bash
+Copiar
+Editar
 php artisan migrate
-Executando o Projeto
-Inicie o servidor:
+▶️ Executando o Projeto
+Inicie o servidor local:
 
+bash
+Copiar
+Editar
 php artisan serve
-Agora, acesse http://localhost:8000.
+Depois, acesse no navegador:
 
-Geração de PDF
-Este projeto usa Barryvdh DomPDF. Use o botão "Gerar PDF" na interface de listagem de vendas.
+cpp
+Copiar
+Editar
+http://127.0.0.1:8000
+🧾 Geração de PDF
+Este projeto utiliza o pacote barryvdh/laravel-dompdf para gerar PDFs das vendas.
+Na tela de listagem, clique no botão "Gerar PDF" ao lado de uma venda para baixar o documento com os dados daquela transação.
 
-Funcionalidades
-O projeto consegue perfomar o basico do challenge, conseguindo cadastrar uma venda, listar, editar e deletar e como um pequeno extra, gerar pdf de uma venda.
+📋 Funcionalidades
+Cadastro de clientes e produtos
 
-Licença
-Licenciado sob a MIT License.
+Registro de vendas com múltiplos produtos
+
+Cálculo automático de subtotal
+
+Pagamento à vista ou parcelado
+
+Listagem, edição e exclusão de vendas
+
+Exportação de venda em PDF
+
+🧪 Extras
+Organização por seções (venda e pagamento)
+
+Modais para cadastro rápido de cliente e produto
+
+Atualização dinâmica da interface via jQuery
