@@ -8,6 +8,93 @@
     <title>Vendas</title>
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+            font-family: 'Inter', sans-serif;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4e73df, #1cc88a);
+            color: white;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .btn {
+            border-radius: 0.4rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .btn-primary {
+            background-color: #343a40;
+            border-color: #343a40;
+        }
+
+        .btn-primary:hover {
+            background-color: #23272b;
+        }
+
+        .btn-info {
+            background-color: #36b9cc;
+            border-color: #36b9cc;
+        }
+
+        .btn-danger {
+            background-color: #e74a3b;
+            border-color: #e74a3b;
+        }
+
+        .btn-warning {
+            background-color: #f6c23e;
+            border-color: #f6c23e;
+            color: #1a1a1a;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-weight: 600;
+            color: #343a40;
+        }
+
+        .table thead th {
+            background-color: #343a40;
+            color: #fff;
+            vertical-align: middle;
+        }
+
+        .table tbody tr:hover {
+            background-color: #e8f0fe;
+        }
+
+        .table td,
+        .table th {
+            vertical-align: middle;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #f9f9f9;
+        }
+
+        .btn-sm {
+            margin-right: 6px;
+        }
+
+        .table-responsive {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
 </head>
 
 <body>
