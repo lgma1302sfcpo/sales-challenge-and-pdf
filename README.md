@@ -5,7 +5,7 @@ PHP 8.0 ou superior
 
 Composer
 
-MySQL 5.7+ ou MariaDB
+MySQL
 
 Navegador moderno
 
@@ -20,9 +20,7 @@ cd sales-challenge-and-pdf
 Instale as dependências do PHP:
 
 composer install
-Configure o ambiente:
-
-Copie o arquivo .env.example para .env
+Configure o arquivo .env com as informações do banco de dados.
 
 Configure os dados de conexão com o banco de dados
 
