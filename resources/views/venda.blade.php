@@ -101,9 +101,18 @@
     <header class="bg-light py-3 border-bottom">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="m-0">Sistema de Vendas</h1>
-            <a href="{{ route('sales.index') }}" class="btn btn-primary">Ver Lista de Vendas</a>
+            <nav class="navbar navbar-light bg-light">
+                <span class="navbar-brand mb-0 h1">Sistema de Vendas</span>
+                <a href="/" class="btn btn-primary">Nova venda</a>
+                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="btn btn-outline-danger">Sair</button>
+                </form>
+
+            </nav>
         </div>
     </header>
+
     <div class="container">
         <br>
         <br>
@@ -757,6 +766,7 @@
                     $('#payment').hide();
                     $('#save-sale').show();
                     $('#edit-sale').hide();
+                    window.location.href = "{{ route('sales.index') }}";
                 },
                 error: function(xhr) {
                     // Erro na operação

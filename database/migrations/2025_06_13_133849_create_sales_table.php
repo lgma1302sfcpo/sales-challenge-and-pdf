@@ -14,11 +14,12 @@ class CreateSalesTable extends Migration
     public function up()
     {
         Schema::create('sales', function (Blueprint $table) {
-            $table->id(); // Identificador único para a venda
-            $table->foreignId('customer_id')->constrained()->onDelete('cascade'); // Relacionamento com a tabela customers
-            $table->decimal('total', 10, 2); // Valor total da venda
-            $table->enum('status', ['Pending', 'Completed', 'Cancelled'])->default('Pending'); // Status da venda
-            $table->timestamps(); // Campos created_at e updated_at
+            $table->id();
+            $table->foreignId('customer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // <- novo campo
+            $table->decimal('total', 10, 2);
+            $table->enum('status', ['Pending', 'Completed', 'Cancelled'])->default('Pending');
+            $table->timestamps();
         });
     }
 

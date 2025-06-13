@@ -9,6 +9,8 @@ use App\Models\ItemSale;
 use App\Models\Installment;
 use App\Models\Payment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 use PDF;
 
 class SalesController extends Controller
@@ -36,6 +38,7 @@ class SalesController extends Controller
 
         $sale = Sale::create([
             'customer_id' => $request->customer_id,
+            'user_id' => Auth::id(), // Associando o vendedor
             'total' => $request->total,
             'status' => 'Pending',
         ]);

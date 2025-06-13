@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Models;
@@ -41,6 +40,9 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
     ];
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

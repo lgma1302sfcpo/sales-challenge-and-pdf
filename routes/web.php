@@ -19,9 +19,15 @@ use App\Http\Controllers\ProductsController;
 
 
 // Rota para a tela de vendas
-Route::get('/', function () {
-    return view('venda');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/', function () {
+        return view('venda');
+    })->name('venda');
+
+    // ...outras rotas protegidas
 });
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 // Rota para a listagem de vendas
@@ -42,3 +48,7 @@ Route::get('/sales/{id}/edit', [SalesController::class, 'edit'])->name('sales.ed
 Route::put('/sales/{id}', [SalesController::class, 'update'])->name('sales.update');
 Route::delete('/sales/{id}', [SalesController::class, 'destroy'])->name('sales.destroy');
 Route::get('/sales/{id}/pdf', [SalesController::class, 'generatePDF'])->name('sales.pdf');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

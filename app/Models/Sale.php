@@ -10,17 +10,20 @@ class Sale extends Model
 {
     use HasFactory;
 
-    // Define os campos que podem ser preenchidos
     protected $fillable = [
         'customer_id',
+        'user_id', // precisa estar aqui!
         'total',
         'status',
     ];
 
-    // Define a tabela associada ao modelo
     protected $table = 'sales';
 
-    // Define as relações
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
     public function customer()
     {
         return $this->belongsTo(Customer::class);

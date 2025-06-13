@@ -72,7 +72,13 @@
     <header class="bg-light py-3 border-bottom">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="m-0">Sistema de Vendas</h1>
-            <a href="/" class="btn btn-primary">Nova venda</a>
+            <div>
+                <a href="/" class="btn btn-primary">Nova venda</a>
+                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Sair</button>
+                </form>
+            </div>
         </div>
     </header>
     <div class="container">
