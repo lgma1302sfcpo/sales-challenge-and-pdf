@@ -43,23 +43,3 @@ http://127.0.0.1:8000
 Geração de PDF
 Este projeto utiliza o pacote barryvdh/laravel-dompdf para gerar PDFs das vendas.
 Na tela de listagem, clique no botão "Gerar PDF" ao lado de uma venda para baixar o documento com os dados daquela transação.
-
-Funcionalidades
-Cadastro de clientes e produtos
-
-Registro de vendas com múltiplos produtos
-
-Cálculo automático de subtotal
-
-Pagamento à vista ou parcelado
-
-Listagem, edição e exclusão de vendas
-
-Exportação de venda em PDF
-
-Extras
-Organização por seções (venda e pagamento)
-
-Modais para cadastro rápido de cliente e produto
-
-Atualização dinâmica da interface via jQuery
