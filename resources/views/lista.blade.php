@@ -7,78 +7,13 @@
     <title>Listagem de Vendas</title>
     <!-- Adicione aqui seus arquivos CSS, como Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        header {
-            background: linear-gradient(90deg, #007bff, #6610f2);
-            color: white;
-        }
-
-        header h1 {
-            color: white;
-        }
-
-        .btn-primary {
-            background-color: #343a40;
-            border-color: #343a40;
-        }
-
-        .btn-primary:hover {
-            background-color: #23272b;
-            border-color: #1d2124;
-        }
-
-        .btn-info {
-            background-color: #17a2b8;
-            border-color: #17a2b8;
-        }
-
-        .btn-danger {
-            background-color: #dc3545;
-            border-color: #dc3545;
-        }
-
-        .btn-warning {
-            background-color: #ffc107;
-            border-color: #ffc107;
-            color: #212529;
-        }
-
-        .table thead th {
-            background-color: #343a40;
-            color: white;
-        }
-
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #f1f1f1;
-        }
-
-        .container {
-            margin-top: 40px;
-        }
-
-        .btn-sm {
-            margin-right: 5px;
-        }
-    </style>
 </head>
 
 <body>
     <header class="bg-light py-3 border-bottom">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="m-0">Sistema de Vendas</h1>
-            <div>
-                <a href="/" class="btn btn-primary">Nova venda</a>
-                <form action="{{ route('logout') }}" method="POST" style="display:inline;">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Sair</button>
-                </form>
-            </div>
+            <a href="/" class="btn btn-primary">Nova venda</a>
         </div>
     </header>
     <div class="container">

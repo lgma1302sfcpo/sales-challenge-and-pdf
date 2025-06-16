@@ -133,25 +133,26 @@ class SalesController extends Controller
 
     public function generatePDF($id)
     {
-        $sale = Sale::with('customer', 'itemSales.product')->findOrFail($id);
+        $sale = Sale::with(['customer', 'itemSales.product', 'installments'])->findOrFail($id);
 
         $pdf = PDF::loadView('sales.pdf', compact('sale'));
         return $pdf->download('venda_' . $sale->id . '.pdf');
     }
 
+
     public function edit($id)
     {
-        $sale = Sale::with(['itemSales', 'customer', 'payments'])->findOrFail($id);
+        $sale = Sale::with(['itemSales', 'customer', 'payments', 'installments'])->findOrFail($id);
         $products = Product::all();
-        $selectedProducts = $sale->itemSales->pluck('product_id');
 
         return view('sales.edit', [
             'sale' => $sale,
             'products' => $products,
             'customer' => $sale->customer,
-            'selectedProducts' => $selectedProducts
+            'selectedProducts' => $sale->itemSales->pluck('product_id')
         ]);
     }
+
     public function destroy($id)
     {
         $sale = Sale::findOrFail($id);

@@ -85,17 +85,19 @@
                     <select id="customer" class="form-control" name="customer" readonly>
                         <option value="{{ $customer->id }}" selected>{{ $customer->name }}</option>
                     </select>
-                    <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#customerModal">Cadastrar Cliente</button>
+                    <button type="button" class="btn btn-primary mt-2" data-toggle="modal"
+                        data-target="#customerModal">Cadastrar Cliente</button>
                 </div>
                 <div class="form-group">
                     <label for="products">Produtos</label>
                     <select id="products" class="form-control">
                         <option value="">Escolha um produto...</option>
-                        @foreach($products as $product)
-                        <option value="{{ $product->id }}">{{ $product->name }}</option>
+                        @foreach ($products as $product)
+                            <option value="{{ $product->id }}">{{ $product->name }}</option>
                         @endforeach
                     </select>
-                    <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#productModal">Cadastrar Produto</button>
+                    <button type="button" class="btn btn-primary mt-2" data-toggle="modal"
+                        data-target="#productModal">Cadastrar Produto</button>
                 </div>
 
                 <table class="table">
@@ -112,7 +114,8 @@
                             <td>{{ $customer->cpf }}</td>
                             <td>
 
-                                <button type="button" class="btn btn-danger btn-sm remove-item">Remover cliente</button>
+                                <button type="button" class="btn btn-danger btn-sm remove-item">Remover
+                                    cliente</button>
                             </td>
                         </tr>
                     </tbody>
@@ -130,22 +133,25 @@
                         </tr>
                     </thead>
                     <tbody id="sale-items">
-                        @foreach($sale->itemSales as $item)
-                        <tr data-item-id="{{ $item->id }}" data-product-id="{{ $item->product_id }}">
-                            <td>
-                                <select class="form-control product-select">
-                                    @foreach($products as $product)
-                                    <option value="{{ $product->id }}" {{ $item->product_id == $product->id ? 'selected' : '' }}>
-                                        {{ $product->name }}
-                                    </option>
-                                    @endforeach
-                                </select>
-                            </td>
-                            <td><input type="number" class="form-control quantity" value="{{ $item->quantity }}" min="1" /></td>
-                            <td><input type="number" class="form-control unit-price" value="{{ $item->unit_price }}" min="0" step="0.01" /></td>
-                            <td class="subtotal">{{ number_format($item->unit_price * $item->quantity, 2) }}</td>
-                            <td><button type="button" class="btn btn-danger remove-item">Remover</button></td>
-                        </tr>
+                        @foreach ($sale->itemSales as $item)
+                            <tr data-item-id="{{ $item->id }}" data-product-id="{{ $item->product_id }}">
+                                <td>
+                                    <select class="form-control product-select">
+                                        @foreach ($products as $product)
+                                            <option value="{{ $product->id }}"
+                                                {{ $item->product_id == $product->id ? 'selected' : '' }}>
+                                                {{ $product->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </td>
+                                <td><input type="number" class="form-control quantity" value="{{ $item->quantity }}"
+                                        min="1" /></td>
+                                <td><input type="number" class="form-control unit-price"
+                                        value="{{ $item->unit_price }}" min="0" step="0.01" /></td>
+                                <td class="subtotal">{{ number_format($item->unit_price * $item->quantity, 2) }}</td>
+                                <td><button type="button" class="btn btn-danger remove-item">Remover</button></td>
+                            </tr>
                         @endforeach
                     </tbody>
 
@@ -158,7 +164,8 @@
             <!-- Seção de Pagamento -->
             <section id="payment">
                 <!-- Botão Editar Venda -->
-                <button type="button" id="edit-sale" class="btn btn-warning" style="display: none;">Editar Venda</button>
+                <button type="button" id="edit-sale" class="btn btn-warning" style="display: none;">Editar
+                    Venda</button>
                 <!-- Exibe o total -->
                 <div class="form-group">
                     <label for="total-price">Subtotal Total: </label>
@@ -211,13 +218,15 @@
                             <!-- Parcelas serão geradas aqui -->
                         </tbody>
                     </table>
+
                 </div>
                 <button type="submit" id="finishButton" class="btn btn-success">Finalizar Pedido</button>
             </section>
         </form>
 
         <!-- Modal para Cadastro de Cliente -->
-        <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel" aria-hidden="true">
+        <div class="modal fade" id="customerModal" tabindex="-1" role="dialog" aria-labelledby="customerModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -246,7 +255,8 @@
         </div>
 
         <!-- Modal para Cadastro de Produto -->
-        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal fade" id="productModal" tabindex="-1" role="dialog" aria-labelledby="productModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -260,11 +270,13 @@
                             @csrf
                             <div class="form-group">
                                 <label for="product-name">Nome</label>
-                                <input type="text" id="product-name" name="name" class="form-control" required>
+                                <input type="text" id="product-name" name="name" class="form-control"
+                                    required>
                             </div>
                             <div class="form-group">
                                 <label for="unit_price">Valor Unitário</label>
-                                <input type="number" id="unit_price" name="unit_price" class="form-control" step="0.01" required>
+                                <input type="number" id="unit_price" name="unit_price" class="form-control"
+                                    step="0.01" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Salvar Produto</button>
                         </form>
@@ -274,6 +286,8 @@
             </div>
         </div>
     </div>
+
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -320,7 +334,8 @@
                     success: function(response) {
                         var $select = $('#products');
                         $select.empty(); // Limpar opções existentes
-                        $select.append('<option value="">Escolha um produto...</option>'); // Adiciona opção padrão
+                        $select.append(
+                            '<option value="">Escolha um produto...</option>'); // Adiciona opção padrão
 
                         // Adiciona os produtos ao select
                         $.each(response.products, function(index, product) {
@@ -424,7 +439,8 @@
                     var $row = $(this).closest('tr');
                     var quantity = $row.find('.quantity').val();
                     var unitPrice = $row.find('.unit-price').val();
-                    var subtotal = (quantity * unitPrice).toFixed(2); // Calcula o subtotal com 2 casas decimais
+                    var subtotal = (quantity * unitPrice).toFixed(
+                        2); // Calcula o subtotal com 2 casas decimais
                     $row.find('.subtotal').text(subtotal);
 
                 });
@@ -451,7 +467,9 @@
                     method: 'POST',
                     data: $(this).serialize(),
                     success: function(response) {
-                        $('#clientMessage').html('<div class="alert alert-success">Cliente cadastrado com sucesso!</div>');
+                        $('#clientMessage').html(
+                            '<div class="alert alert-success">Cliente cadastrado com sucesso!</div>'
+                        );
                         // Opcional: atualizar lista de clientes na página ou no modal
                         $('#clientModal').modal('hide');
                         // Limpar formulário
@@ -462,7 +480,9 @@
                         }, 2000);
                     },
                     error: function(xhr) {
-                        $('#clientMessage').html('<div class="alert alert-danger">Erro ao cadastrar cliente.</div>');
+                        $('#clientMessage').html(
+                            '<div class="alert alert-danger">Erro ao cadastrar cliente.</div>'
+                        );
                     }
                 });
             });
@@ -479,7 +499,9 @@
                     method: 'POST',
                     data: $(this).serialize(),
                     success: function(response) {
-                        $('#productMessage').html('<div class="alert alert-success">O produto foi cadastrado com sucesso!</div>');
+                        $('#productMessage').html(
+                            '<div class="alert alert-success">O produto foi cadastrado com sucesso!</div>'
+                        );
                         $('#productModal').modal('hide');
                         $('#productForm')[0].reset();
                         setTimeout(function() {
@@ -487,7 +509,9 @@
                         }, 2000);
                     },
                     error: function(xhr) {
-                        $('#productMessage').html('<div class="alert alert-danger">Erro ao cadastrar o produto.</div>');
+                        $('#productMessage').html(
+                            '<div class="alert alert-danger">Erro ao cadastrar o produto.</div>'
+                        );
                     }
                 });
             });
@@ -768,6 +792,63 @@
                     console.error(xhr.responseText);
                 }
             });
+        });
+    </script>
+    <!-- Adicione isso no cabeçalho da view, antes dos scripts -->
+    <!-- Adicione isso no cabeçalho da view, antes dos scripts -->
+    <!-- Adicione isso no cabeçalho da view, antes dos scripts -->
+    <script>
+        // Passar dados de pagamento do PHP para JavaScript
+        var salePaymentType = "{{ $sale->payment->type ?? '' }}";
+        var saleInstallments = @json($sale->payment->installments ?? []);
+        var saleTotal = "{{ $sale->total ?? 0 }}";
+    </script>
+
+
+    <!-- Modifique o script de inicialização -->
+    <script>
+        $(document).ready(function() {
+            // Mostrar a seção de pagamento se já houver dados
+            if (salePaymentType) {
+                $('#payment').show();
+                $('#payment-type').val(salePaymentType).trigger('change');
+                $('#save-sale').hide();
+                $('#edit-sale').show();
+
+                // Desabilitar campos da venda
+                $('#customer').prop('disabled', true);
+                $('#products').prop('disabled', true);
+                $('#customerModal').prop('disabled', true);
+                $('#productModal').prop('disabled', true);
+                $('.product-select').prop('disabled', true);
+                $('#customer-info input, #customer-info button').prop('disabled', true);
+                $('#sale-items input, #sale-items button').prop('disabled', true);
+
+                // Atualizar total
+                $('#total-price').text(saleTotal);
+
+                // Carregar parcelas existentes
+                if (salePaymentType === 'parcelado' && saleInstallments.length > 0) {
+                    $('#num-parcelas').val(saleInstallments.length);
+
+                    // Limpar e recriar as parcelas
+                    $('#parcelas-info').empty();
+                    saleInstallments.forEach(function(inst, index) {
+                        var isLast = index === saleInstallments.length - 1;
+                        var disabled = isLast ? 'disabled' : '';
+                        var newRow = `
+                        <tr>
+                            <td>Parcela ${index + 1}</td>
+                            <td><input type="date" class="form-control data-parcela" value="${inst.due_date}" required></td>
+                            <td><input type="number" class="form-control valor-parcela" value="${inst.amount}" min="1" ${disabled} required></td>
+                        </tr>
+                    `;
+                        $('#parcelas-info').append(newRow);
+                    });
+                } else if (salePaymentType === 'avista') {
+                    $('#avista-amount').val(saleTotal);
+                }
+            }
         });
     </script>
 </body>

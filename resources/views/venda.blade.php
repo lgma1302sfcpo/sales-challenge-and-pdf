@@ -8,128 +8,29 @@
     <title>Vendas</title>
 
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-        body {
-            background-color: #f4f6f9;
-            font-family: 'Inter', sans-serif;
-        }
-
-        header {
-            background: linear-gradient(90deg, #4e73df, #1cc88a);
-            color: white;
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin: 0;
-        }
-
-        .btn {
-            border-radius: 0.4rem;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .btn-primary {
-            background-color: #343a40;
-            border-color: #343a40;
-        }
-
-        .btn-primary:hover {
-            background-color: #23272b;
-        }
-
-        .btn-info {
-            background-color: #36b9cc;
-            border-color: #36b9cc;
-        }
-
-        .btn-danger {
-            background-color: #e74a3b;
-            border-color: #e74a3b;
-        }
-
-        .btn-warning {
-            background-color: #f6c23e;
-            border-color: #f6c23e;
-            color: #1a1a1a;
-        }
-
-        .container {
-            margin-top: 50px;
-        }
-
-        h2 {
-            font-weight: 600;
-            color: #343a40;
-        }
-
-        .table thead th {
-            background-color: #343a40;
-            color: #fff;
-            vertical-align: middle;
-        }
-
-        .table tbody tr:hover {
-            background-color: #e8f0fe;
-        }
-
-        .table td,
-        .table th {
-            vertical-align: middle;
-        }
-
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #f9f9f9;
-        }
-
-        .btn-sm {
-            margin-right: 6px;
-        }
-
-        .table-responsive {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-    </style>
 </head>
 
 <body>
     <header class="bg-light py-3 border-bottom">
         <div class="container d-flex justify-content-between align-items-center">
             <h1 class="m-0">Sistema de Vendas</h1>
-            <nav class="navbar navbar-light bg-light">
-                <span class="navbar-brand mb-0 h1">Sistema de Vendas</span>
-                <a href="/" class="btn btn-primary">Nova venda</a>
-                <form action="{{ route('logout') }}" method="POST" style="display: inline;">
-                    @csrf
-                    <button type="submit" class="btn btn-outline-danger">Sair</button>
-                </form>
-
-            </nav>
+            <a href="{{ route('sales.index') }}" class="btn btn-primary">Ver Lista de Vendas</a>
         </div>
     </header>
-
     <div class="container">
-        <br>
-        <br>
-        <br>
-
+        <h1 class="my-4">Criar Venda</h1>
         <form id="sale-form">
             <section id="sale">
 
                 <div class="form-group">
-                    <h1 for="customer">Selecione ou Cadastre um cliente</h1>
+                    <label for="customer">Cliente</label>
                     <select id="customer" class="form-control" name="customer">
-                        <option value="">Selecione um Cliente</option>
+                        <option value="">Escolha um Cliente</option>
                     </select>
                     <button type="button" class="btn btn-primary mt-2" data-toggle="modal" data-target="#customerModal">Cadastrar Cliente</button>
                 </div>
-                <div class=" form-group">
-                    <h1 for="products">Selecione ou Cadastre um produto</h1>
+                <div class="form-group">
+                    <label for="products">Produtos</label>
                     <select id="products" class="form-control">
                         <option value="">Escolha um produto...</option>
                     </select>
@@ -305,7 +206,7 @@
                     success: function(response) {
                         var $select = $('#customer');
                         $select.empty();
-                        $select.append('<option value="">Selecione um Cliente</option>');
+                        $select.append('<option value="">Escolha um Cliente</option>');
 
 
                         $.each(response.customers, function(index, customer) {
@@ -766,7 +667,6 @@
                     $('#payment').hide();
                     $('#save-sale').show();
                     $('#edit-sale').hide();
-                    window.location.href = "{{ route('sales.index') }}";
                 },
                 error: function(xhr) {
                     // Erro na operação
